@@ -1,4 +1,4 @@
-package com.vdvapp.myclassschedule.ui.dashboard
+package com.vdvapp.myclassschedule.ui.classes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.vdvapp.myclassschedule.databinding.FragmentDashboardBinding
+import com.vdvapp.myclassschedule.databinding.FragmentClassesBinding
 
-class DashboardFragment : Fragment() {
+class ClassesFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentClassesBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +22,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val classesViewModel =
+            ViewModelProvider(this).get(ClassesViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentClassesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textClasses
+        classesViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

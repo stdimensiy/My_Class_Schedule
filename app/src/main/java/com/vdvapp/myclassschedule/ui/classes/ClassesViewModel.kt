@@ -1,13 +1,13 @@
-package com.vdvapp.myclassschedule.ui.dashboard
+package com.vdvapp.myclassschedule.ui.classes
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class ClassesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is classes Fragment"
     }
     val text: LiveData<String> = _text
 }
