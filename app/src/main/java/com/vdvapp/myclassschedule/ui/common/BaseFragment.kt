@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
 
-class BaseFragment<VB : ViewBinding> : Fragment() {
+abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     protected val TAG = "${BaseConstants.MY_TAG} / ${this.javaClass.simpleName}"
     private var _binding: VB? = null
     protected val binding: VB get() = _binding!!
