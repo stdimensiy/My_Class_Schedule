@@ -1,6 +1,8 @@
 package com.vdvapp.myclassschedule
 
 import android.os.Bundle
+import android.view.Menu
+import android.widget.PopupMenu
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -8,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.vdvapp.myclassschedule.databinding.ActivityMainBinding
+import me.ibrahimsn.lib.SmoothBottomBar
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
-        val navView: BottomNavigationView = binding.navView
-
+        val navView: SmoothBottomBar= binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -30,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+
+        val popupMenu = PopupMenu(this, null)
+        popupMenu.inflate(R.menu.bottom_nav_menu)
+        val menu = popupMenu.menu
+        navView.setupWithNavController(menu, navController)
     }
 }
