@@ -1,11 +1,13 @@
 package com.vdvapp.myclassschedule.ui.home
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vdvapp.myclassschedule.ui.common.*
 
-class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class HomeAdapter(val context: Context?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var items: List<PertainedHomeList> = listOf()
 
     override fun getItemViewType(position: Int) = when (items[position]) {
@@ -34,11 +36,17 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             is ClassesToDate -> {
                 holder as ClassesListViewHolder
-                holder.title.text = "Лист занятий прикреплен"
+                holder.title.text = "Classes"
+                holder.description.text = "${item.classes.size} classes todauy"
+                var classesAdapter = ClassesAdapter()
+                holder.list.adapter = classesAdapter
+                holder.list.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                classesAdapter.items = item.classes
+                classesAdapter.notifyDataSetChanged()
             }
             is HomeworkList -> {
                 holder as HomeworkListViewHolder
-                holder.title.text = "Лист ДЗ прикреплен"
+                holder.title.text = "Homework"
             }
         }
     }

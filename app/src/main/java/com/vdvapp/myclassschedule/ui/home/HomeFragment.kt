@@ -24,7 +24,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        adapter = HomeAdapter()
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         return super.onCreateView(inflater, container, savedInstanceState)
@@ -33,6 +32,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val homeList = view.findViewById<RecyclerView>(R.id.rv_home)
+        adapter = HomeAdapter(context)
         homeList.adapter = adapter
         homeList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         viewModel.fetchData()
