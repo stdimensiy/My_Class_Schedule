@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/gradient_background"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_title_text"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_tens_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_ones_days"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_ones_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_day_and_hour_divider"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/tv_tens_days"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_day_and_hour_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:padding="8dp"
+        android:text=":"
+        android:textColor="#FFFFFFFF"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_tens_hours"
+        app:layout_constraintEnd_toStartOf="@id/tv_tens_hours"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/tv_ones_days"
+        app:layout_constraintTop_toTopOf="@+id/tv_tens_hours" />
+
+    <TextView
+        android:id="@+id/tv_tens_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_ones_hours"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/tv_day_and_hour_divider"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_ones_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_hour_and_min_divider"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/tv_tens_hours"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_hour_and_min_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:padding="8dp"
+        android:text=":"
+        android:textColor="#FFFFFFFF"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_ones_hours"
+        app:layout_constraintEnd_toStartOf="@id/tv_tens_minutes"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/tv_ones_hours"
+        app:layout_constraintTop_toTopOf="@id/tv_ones_hours" />
+
+    <TextView
+        android:id="@+id/tv_tens_minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_ones_minutes"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/tv_hour_and_min_divider"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_ones_minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/tv_tens_minutes"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_label_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_label_days_text"
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintEnd_toEndOf="@id/tv_ones_days"
+        app:layout_constraintStart_toStartOf="@id/tv_tens_days"
+        app:layout_constraintTop_toBottomOf="@id/tv_tens_days" />
+
+    <TextView
+        android:id="@+id/tv_label_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_label_hours_text"
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintEnd_toEndOf="@id/tv_ones_hours"
+        app:layout_constraintStart_toStartOf="@id/tv_tens_hours"
+        app:layout_constraintTop_toBottomOf="@id/tv_tens_hours" />
+
+    <TextView
+        android:id="@+id/tv_label_minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_label_minutes_text"
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintEnd_toEndOf="@id/tv_ones_minutes"
+        app:layout_constraintStart_toStartOf="@id/tv_tens_minutes"
+        app:layout_constraintTop_toBottomOf="@id/tv_tens_minutes" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
