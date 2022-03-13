@@ -15,10 +15,14 @@ class ClassesAdapter : RecyclerView.Adapter<ClassesViewHolder>() {
     override fun onBindViewHolder(holder: ClassesViewHolder, position: Int) {
         val item = items[position]
         holder.title.text = item.title
+        holder.comment.text = "${item.timeStart} - ${item.timeEnd}"
+        holder.showDescriptionIcon()
+        holder.hideVerticalDivider()
+        holder.hideTimePoint()
+        holder.hideItemHeader()
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
-
 }

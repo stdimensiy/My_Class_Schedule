@@ -47,6 +47,11 @@ class HomeAdapter(val context: Context?) : RecyclerView.Adapter<RecyclerView.Vie
             is HomeworkList -> {
                 holder as HomeworkListViewHolder
                 holder.title.text = "Homework"
+                var homeworkAdapter = HomeworkAdapter()
+                holder.list.adapter = homeworkAdapter
+                holder.list.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                homeworkAdapter.items = item.list
+                homeworkAdapter.notifyDataSetChanged()
             }
         }
     }

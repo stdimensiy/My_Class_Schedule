@@ -37,13 +37,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         app:cardCornerRadius="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_time_point"
         app:layout_constraintTop_toBottomOf="@id/tv_time">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,7 +55,7 @@
                 android:padding="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_name"
@@ -71,14 +67,25 @@
                 app:layout_constraintTop_toTopOf="@id/iv_badge"
                 tools:text="Lesson" />
 
+            <ImageView
+                android:id="@+id/iv_description_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:alpha="0.5"
+                android:src="@drawable/baseline_access_time_black_24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_comment"
+                app:layout_constraintStart_toStartOf="@+id/tv_name"
+                app:layout_constraintTop_toTopOf="@+id/tv_comment" />
+
             <TextView
                 android:id="@+id/tv_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:textSize="14sp"
+                android:alpha="0.5"
+                android:layout_marginStart="4dp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_badge"
-                app:layout_constraintStart_toEndOf="@id/iv_badge"
+                app:layout_constraintStart_toEndOf="@+id/iv_description_icon"
                 tools:text="Комментарий: содержание" />
 
             <LinearLayout
