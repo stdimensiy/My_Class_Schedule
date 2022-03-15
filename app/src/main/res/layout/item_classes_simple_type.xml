@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp">
+
     <View
         android:id="@+id/divider"
         android:layout_width="1dp"
@@ -34,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="8:00 - 8:45" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="24dp"
@@ -48,11 +50,14 @@
 
             <ImageView
                 android:id="@+id/iv_badge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:background="@drawable/ic_books_svgrepo_com__1_"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginVertical="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_for_label_card"
                 android:padding="12dp"
+                android:src="@drawable/ic_books_svg_label"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -62,16 +67,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
+                android:layout_marginTop="4dp"
                 app:layout_constraintStart_toEndOf="@id/iv_badge"
                 app:layout_constraintTop_toTopOf="@id/iv_badge"
                 tools:text="Lesson" />
 
             <ImageView
                 android:id="@+id/iv_description_icon"
-                android:layout_width="wrap_content"
+                android:layout_width="12dp"
                 android:layout_height="0dp"
-                android:alpha="0.5"
+                android:alpha="0.3"
                 android:src="@drawable/baseline_access_time_black_24dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_comment"
                 app:layout_constraintStart_toStartOf="@+id/tv_name"
@@ -81,16 +87,17 @@
                 android:id="@+id/tv_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:alpha="0.5"
                 android:layout_marginStart="4dp"
+                android:layout_marginBottom="4dp"
+                android:alpha="0.5"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_badge"
                 app:layout_constraintStart_toEndOf="@+id/iv_description_icon"
                 tools:text="Комментарий: содержание" />
 
             <LinearLayout
-                android:id="@+id/p_link"
-                android:layout_width="wrap_content"
+                android:id="@+id/ll_link"
+                android:layout_width="50dp"
                 android:layout_height="0dp"
                 android:background="#4bcfff"
                 android:gravity="center"
@@ -100,7 +107,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="16dp"
@@ -110,8 +117,8 @@
                     android:textSize="12sp" />
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
                     android:rotation="90"
@@ -119,5 +126,5 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
