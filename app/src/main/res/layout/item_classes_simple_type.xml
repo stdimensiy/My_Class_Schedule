@@ -21,13 +21,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/start_time_point"
-        app:layout_constraintBottom_toBottomOf="@id/tv_time"
-        app:layout_constraintEnd_toStartOf="@id/tv_time"
+        app:layout_constraintBottom_toBottomOf="@id/tv_time_interval"
+        app:layout_constraintEnd_toStartOf="@id/tv_time_interval"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_time"
+        android:id="@+id/tv_time_interval"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"
@@ -42,7 +42,7 @@
         app:cardCornerRadius="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_time_point"
-        app:layout_constraintTop_toBottomOf="@id/tv_time">
+        app:layout_constraintTop_toBottomOf="@id/tv_time_interval">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -67,8 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textSize="16sp"
                 android:layout_marginTop="4dp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@id/iv_badge"
                 app:layout_constraintTop_toTopOf="@id/iv_badge"
                 tools:text="Lesson" />

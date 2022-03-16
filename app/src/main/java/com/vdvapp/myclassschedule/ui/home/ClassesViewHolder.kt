@@ -1,6 +1,5 @@
 package com.vdvapp.myclassschedule.ui.home
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,8 @@ class ClassesViewHolder(
     private var descriptionIcon = binding.ivDescriptionIcon
     private var divider = binding.divider
     private var headerPoint = binding.ivTimePoint
-    private var headetTitle = binding.tvTime
+    private var headerTitle = binding.tvTimeInterval
+
 
     fun setDescriptionIcon(res: Int) {
         descriptionIcon.setImageResource(res)
@@ -44,6 +44,6 @@ class ClassesViewHolder(
     }
 
     fun hideItemHeader() {
-        headetTitle.visibility = View.GONE
+        headerTitle.visibility = View.GONE
     }
 }
