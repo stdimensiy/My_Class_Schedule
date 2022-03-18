@@ -3,6 +3,7 @@ package com.vdvapp.myclassschedule.ui.common
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.vdvapp.myclassschedule.domain.User
 
 class ParticipantAdapter : RecyclerView.Adapter<ParticipantViewHolder>() {
     var items: List<Participable> = listOf()
@@ -13,7 +14,14 @@ class ParticipantAdapter : RecyclerView.Adapter<ParticipantViewHolder>() {
 
     override fun onBindViewHolder(holder: ParticipantViewHolder, position: Int) {
         val item = items[position]
-        // реализовать подстановку картинки аватара участника или ресурс
+        if (position == 0) holder.makeAnIndent()
+        when (item) {
+            is User -> {
+                holder.setImageBackground(item.systemBackground)
+                holder.setImageAvatar(item.customAvatar ?: item.systemAvatar)
+            }
+        }
+        // на будущее, необходимо реализовать логику отработки клика на элементе
     }
 
     override fun getItemCount(): Int {

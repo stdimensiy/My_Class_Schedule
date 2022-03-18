@@ -6,5 +6,6 @@ data class User(
     val name: String,
     val role: String,
     val systemAvatar: String,
+    val systemBackground: String,
     val customAvatar: String?
 ) : Participable
