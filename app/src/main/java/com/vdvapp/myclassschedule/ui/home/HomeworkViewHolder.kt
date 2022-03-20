@@ -10,6 +10,7 @@ class HomeworkViewHolder (
     parent: ViewGroup,
     binding: ItemHomeworkBinding = ItemHomeworkBinding.inflate(li, parent, false)
 ) : RecyclerView.ViewHolder(binding.root) {
+    var container = binding.cvHomework
     var title = binding.tvDiscipline
     var list = binding.rvAccomplices
 }

@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vdvapp.myclassschedule.domain.User
 
-class ParticipantAdapter : RecyclerView.Adapter<ParticipantViewHolder>() {
+class ParticipantAdapter(var cardBackgroundColor: String) :
+    RecyclerView.Adapter<ParticipantViewHolder>() {
     var items: List<Participable> = listOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParticipantViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -17,7 +18,7 @@ class ParticipantAdapter : RecyclerView.Adapter<ParticipantViewHolder>() {
         if (position == 0) holder.makeAnIndent()
         when (item) {
             is User -> {
-                holder.setImageBackground(item.systemBackground)
+                holder.setImageBackground(item.systemBackground, cardBackgroundColor)
                 holder.setImageAvatar(item.customAvatar ?: item.systemAvatar)
             }
         }

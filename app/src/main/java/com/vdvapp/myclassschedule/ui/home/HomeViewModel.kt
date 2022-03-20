@@ -67,7 +67,7 @@ class HomeViewModel : ViewModel() {
                             "Literature",
                             "2 days left",
                             "Read scenes 1.1-1.12 of The Master and Margarita.", listOf(
-                                User("Первый", "Ученик", "user 1", "#ff661188", null),
+                                User("Первый", "Ученик", "user 1", "#FCD366", null),
                                 User("Первый", "Ученик", "user 1", "#ff115566", null),
                                 User("Второй", "Ученик", "user 2", "#ff994455", null)
 

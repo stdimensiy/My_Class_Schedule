@@ -18,9 +18,12 @@ class HomeworkAdapter(val context: Context?) : RecyclerView.Adapter<HomeworkView
     override fun onBindViewHolder(holder: HomeworkViewHolder, position: Int) {
         val item = items[position]
         holder.title.text = item.lesson
-        var participantAdapter = ParticipantAdapter()
+        val hexColor =
+            String.format("#%06X", 0xFFFFFF and holder.container.cardBackgroundColor.defaultColor)
+        val participantAdapter = ParticipantAdapter(hexColor)
         holder.list.adapter = participantAdapter
-        holder.list.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        holder.list.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         participantAdapter.items = item.accomplices
     }
 
