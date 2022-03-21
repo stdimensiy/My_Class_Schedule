@@ -2,15 +2,20 @@ package com.vdvapp.myclassschedule.ui.home
 
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.vdvapp.myclassschedule.R
 import com.vdvapp.myclassschedule.databinding.FragmentHomeBinding
 import com.vdvapp.myclassschedule.ui.common.BaseFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+    private lateinit var adapter: HomeAdapter
     private lateinit var viewModel: HomeViewModel
     private val hideHandler = Handler()
 
@@ -19,14 +24,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-
+        val homeList = view.findViewById<RecyclerView>(R.id.rv_home)
+        adapter = HomeAdapter(context)
+        homeList.adapter = adapter
+        homeList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        viewModel.fetchData()
+        viewModel.listHomeFragmentStricture.observe(viewLifecycleOwner) {
+            Log.d("Моя проверка", "Изменяю данные первичного списка ${it.size}")
+            adapter.items = it
+            adapter.notifyDataSetChanged()
+        }
     }
 
     @Suppress("InlinedApi")

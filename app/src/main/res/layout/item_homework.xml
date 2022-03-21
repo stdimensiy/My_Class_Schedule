@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv_homework"
+    android:layout_width="210dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    app:cardCornerRadius="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_badge"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_for_label_card"
+            android:padding="12dp"
+            android:src="@drawable/ic_books_svg_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_discipline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_badge"
+            tools:text="Literature" />
+
+        <ImageView
+            android:id="@+id/iv_time_deadline_icon"
+            android:layout_width="12dp"
+            android:layout_height="0dp"
+            android:alpha="0.3"
+            android:src="@drawable/baseline_access_time_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_time_deadline"
+            app:layout_constraintStart_toStartOf="@+id/tv_discipline"
+            app:layout_constraintTop_toTopOf="@+id/tv_time_deadline" />
+
+        <TextView
+            android:id="@+id/tv_time_deadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="4dp"
+            android:alpha="0.5"
+            android:text="2 days left"
+            android:textColor="#fff00fff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_badge"
+            app:layout_constraintStart_toEndOf="@id/iv_time_deadline_icon"
+            app:layout_constraintTop_toBottomOf="@+id/tv_discipline"
+            tools:text="Осталось 2 дня" />
+
+        <TextView
+            android:id="@+id/tv_task"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:lines="2"
+            android:maxLines="2"
+            android:text="132131321 132 1321 3213 21 321 31 plk ;k p podkovs"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_badge"
+            app:layout_constraintStart_toStartOf="@+id/tv_discipline"
+            app:layout_constraintTop_toBottomOf="@+id/iv_badge" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_accomplices"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginVertical="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iv_badge"
+            app:layout_constraintStart_toStartOf="@+id/tv_discipline"
+            app:layout_constraintTop_toBottomOf="@id/tv_task" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

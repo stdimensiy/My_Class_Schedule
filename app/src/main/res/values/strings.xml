@@ -21,4 +21,13 @@
     <string name="title_userInfo">Пользователь</string>
     <string name="title_users">Контакты</string>
     <string name="title_search">Поиск</string>
+    <string name="open_in">Open in</string>
+    <string name="tv_title_text">Заголовок таймера</string>
+    <string name="tv_label_days_text">Дни</string>
+    <string name="tv_label_hours_text">Часы</string>
+    <string name="tv_label_minutes_text">Минуты</string>
+    <string name="menu_search_title">Найти</string>
+    <string name="menu_settings_title">Настройки</string>
+    <string name="menu_user_info_title">Профиль</string>
+    <string name="base_user_greeting">Hi, Mike!</string>
 </resources>
