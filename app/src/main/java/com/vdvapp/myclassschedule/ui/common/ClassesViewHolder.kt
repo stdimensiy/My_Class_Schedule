@@ -1,4 +1,4 @@
-package com.vdvapp.myclassschedule.ui.home
+package com.vdvapp.myclassschedule.ui.common
 
 import android.view.LayoutInflater
 import android.view.View

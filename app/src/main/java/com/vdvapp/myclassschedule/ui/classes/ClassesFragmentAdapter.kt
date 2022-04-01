@@ -1,12 +1,12 @@
-package com.vdvapp.myclassschedule.ui.home
+package com.vdvapp.myclassschedule.ui.classes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.vdvapp.myclassschedule.ui.common.ClassesViewHolder
 import com.vdvapp.myclassschedule.ui.common.Lesson
+import com.vdvapp.myclassschedule.ui.common.ClassesViewHolder
 
-class ClassesAdapter : RecyclerView.Adapter<ClassesViewHolder>() {
+class ClassesFragmentAdapter: RecyclerView.Adapter<ClassesViewHolder>() {
     var items: List<Lesson> = listOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -18,9 +18,7 @@ class ClassesAdapter : RecyclerView.Adapter<ClassesViewHolder>() {
         holder.title.text = item.title
         holder.comment.text = "${item.timeStart} - ${item.timeEnd}"
         holder.showDescriptionIcon()
-        holder.hideVerticalDivider()
-        holder.hideTimePoint()
-        holder.hideItemHeader()
+        holder.showVerticalDivider()
     }
 
     override fun getItemCount(): Int {
