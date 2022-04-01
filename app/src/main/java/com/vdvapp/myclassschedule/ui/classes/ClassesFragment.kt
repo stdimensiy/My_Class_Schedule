@@ -4,39 +4,37 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.vdvapp.myclassschedule.databinding.FragmentClassesBinding
+import com.vdvapp.myclassschedule.ui.common.BaseFragment
+import com.vdvapp.myclassschedule.ui.home.ClassesAdapter
 
-class ClassesFragment : Fragment() {
-
-    private var _binding: FragmentClassesBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+class ClassesFragment : BaseFragment<FragmentClassesBinding>() {
+    private lateinit var adapter: ClassesAdapter
+    private lateinit var viewModel: ClassesViewModel //временно там заглушка
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val classesViewModel =
-            ViewModelProvider(this).get(ClassesViewModel::class.java)
+    ): View? {
+        viewModel = ViewModelProvider(this)[ClassesViewModel::class.java]
 
-        _binding = FragmentClassesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
 
-        val textView: TextView = binding.textClasses
-        classesViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val classesList = binding.rvClasses
+        adapter = ClassesAdapter()
+        classesList.adapter = adapter
+        classesList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        viewModel.fetchData()
+        viewModel.listClassesToDate.observe(viewLifecycleOwner) {
+            adapter.items = it.classes
+            adapter.notifyDataSetChanged()
         }
-        return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

@@ -2,15 +2,12 @@ package com.vdvapp.myclassschedule.ui.home
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.vdvapp.myclassschedule.R
 import com.vdvapp.myclassschedule.databinding.FragmentHomeBinding
 import com.vdvapp.myclassschedule.ui.common.BaseFragment
 
@@ -31,13 +28,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val homeList = view.findViewById<RecyclerView>(R.id.rv_home)
+        val homeList = binding.rvHome
         adapter = HomeAdapter(context)
         homeList.adapter = adapter
         homeList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         viewModel.fetchData()
         viewModel.listHomeFragmentStricture.observe(viewLifecycleOwner) {
-            Log.d("Моя проверка", "Изменяю данные первичного списка ${it.size}")
             adapter.items = it
             adapter.notifyDataSetChanged()
         }
