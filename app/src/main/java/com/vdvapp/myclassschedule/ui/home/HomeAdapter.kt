@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.vdvapp.myclassschedule.ui.common.lists.ClassesAdapter
 import com.vdvapp.myclassschedule.ui.common.*
 
 class HomeAdapter(val context: Context?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -38,7 +39,7 @@ class HomeAdapter(val context: Context?) : RecyclerView.Adapter<RecyclerView.Vie
                 holder as ClassesListViewHolder
                 holder.title.text = "Classes"
                 holder.description.text = "${item.classes.size} classes todauy"
-                var classesAdapter = ClassesAdapter()
+                var classesAdapter = ClassesAdapter(ListView.SMALL)
                 holder.list.adapter = classesAdapter
                 holder.list.layoutManager =
                     LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)

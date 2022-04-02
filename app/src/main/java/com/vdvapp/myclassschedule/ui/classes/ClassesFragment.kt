@@ -8,9 +8,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vdvapp.myclassschedule.databinding.FragmentClassesBinding
 import com.vdvapp.myclassschedule.ui.common.BaseFragment
+import com.vdvapp.myclassschedule.ui.common.ListView
+import com.vdvapp.myclassschedule.ui.common.lists.ClassesAdapter
 
 class ClassesFragment : BaseFragment<FragmentClassesBinding>() {
-    private lateinit var adapter: ClassesFragmentAdapter
+    private lateinit var adapter: ClassesAdapter
     private lateinit var viewModel: ClassesViewModel //временно там заглушка
 
     override fun onCreateView(
@@ -26,9 +28,10 @@ class ClassesFragment : BaseFragment<FragmentClassesBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val classesList = binding.rvClasses
-        adapter = ClassesFragmentAdapter()
+        adapter = ClassesAdapter(ListView.FULL)
         classesList.adapter = adapter
-        classesList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        classesList.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         viewModel.fetchData()
         viewModel.listClassesToDate.observe(viewLifecycleOwner) {
             adapter.items = it.classes

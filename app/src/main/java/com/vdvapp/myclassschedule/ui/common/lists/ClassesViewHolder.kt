@@ -1,4 +1,4 @@
-package com.vdvapp.myclassschedule.ui.common
+package com.vdvapp.myclassschedule.ui.common.lists
 
 import android.view.LayoutInflater
 import android.view.View
@@ -91,6 +91,14 @@ class ClassesViewHolder(
     }
 
     /**
+     * Включает (показывает) фрагмент разметки в виде стилизованной точки разделяителя
+     * @return нет возвращаемых значений
+     */
+    fun showTimePoint() {
+        headerPoint.visibility = View.VISIBLE
+    }
+
+    /**
      * меняет представление временной точки (разделителя) ч большой на маленькую
      * по определению элемент содержит большую (стартовую) временноую точку
      * (как оформление вертикального списка)
@@ -106,6 +114,14 @@ class ClassesViewHolder(
      */
     fun hideItemHeader() {
         headerTitle.visibility = View.GONE
+    }
+
+    /**
+     * Включает (показывает) фрагмент разметки в виде заголовка карточки
+     * @return нет возвращаемых значений
+     */
+    fun showItemHeader() {
+        headerTitle.visibility = View.VISIBLE
     }
 
     /**

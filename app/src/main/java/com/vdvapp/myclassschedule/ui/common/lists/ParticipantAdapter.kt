@@ -1,9 +1,10 @@
-package com.vdvapp.myclassschedule.ui.common
+package com.vdvapp.myclassschedule.ui.common.lists
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vdvapp.myclassschedule.domain.User
+import com.vdvapp.myclassschedule.ui.common.Participable
 
 class ParticipantAdapter(var cardBackgroundColor: String) :
     RecyclerView.Adapter<ParticipantViewHolder>() {

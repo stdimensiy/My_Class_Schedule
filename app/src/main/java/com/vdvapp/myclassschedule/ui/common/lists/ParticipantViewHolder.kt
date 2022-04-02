@@ -1,4 +1,4 @@
-package com.vdvapp.myclassschedule.ui.common
+package com.vdvapp.myclassschedule.ui.common.lists
 
 import android.graphics.Color
 import android.graphics.drawable.LayerDrawable

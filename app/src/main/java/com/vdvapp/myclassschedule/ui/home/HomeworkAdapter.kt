@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vdvapp.myclassschedule.domain.Homework
-import com.vdvapp.myclassschedule.ui.common.ParticipantAdapter
+import com.vdvapp.myclassschedule.ui.common.lists.ParticipantAdapter
 
 class HomeworkAdapter : RecyclerView.Adapter<HomeworkViewHolder>() {
     var items: List<Homework> = listOf()
