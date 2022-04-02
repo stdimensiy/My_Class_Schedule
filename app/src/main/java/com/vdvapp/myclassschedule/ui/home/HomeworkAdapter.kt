@@ -1,6 +1,5 @@
 package com.vdvapp.myclassschedule.ui.home
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vdvapp.myclassschedule.domain.Homework
 import com.vdvapp.myclassschedule.ui.common.ParticipantAdapter
 
-class HomeworkAdapter(val context: Context?) : RecyclerView.Adapter<HomeworkViewHolder>() {
+class HomeworkAdapter : RecyclerView.Adapter<HomeworkViewHolder>() {
     var items: List<Homework> = listOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeworkViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -23,7 +22,7 @@ class HomeworkAdapter(val context: Context?) : RecyclerView.Adapter<HomeworkView
         val participantAdapter = ParticipantAdapter(hexColor)
         holder.list.adapter = participantAdapter
         holder.list.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
         participantAdapter.items = item.accomplices
     }
 

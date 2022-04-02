@@ -20,9 +20,9 @@ class ClassesViewHolder(
     private val headerTitle = binding.tvTimeInterval
     private val timeInterval = binding.tvTimeInterval
     private val lLink = binding.llLink
-    private val lessonContainer = binding.clLesson
+    val lessonContainer = binding.clLesson
     private val description = binding.tvDescription
-    private val accomplices = binding.rvAccomplices
+    val accomplices = binding.rvAccomplices
 
 
     /**
@@ -88,6 +88,16 @@ class ClassesViewHolder(
      */
     fun hideTimePoint() {
         headerPoint.visibility = View.GONE
+    }
+
+    /**
+     * меняет представление временной точки (разделителя) ч большой на маленькую
+     * по определению элемент содержит большую (стартовую) временноую точку
+     * (как оформление вертикального списка)
+     * @return нет возвращаемых значений
+     */
+    fun setSmallTimePoint() {
+        headerPoint.setImageResource(R.drawable.time_point)
     }
 
     /**
