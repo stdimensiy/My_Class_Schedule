@@ -18,6 +18,7 @@ class ClassesAdapter : RecyclerView.Adapter<ClassesViewHolder>() {
         holder.title.text = item.title
         holder.comment.text = "${item.timeStart} - ${item.timeEnd}"
         holder.showDescriptionIcon()
+        if (item.isOpenInSkype) holder.showLink()
         holder.hideVerticalDivider()
         holder.hideTimePoint()
         holder.hideItemHeader()

@@ -17,9 +17,9 @@ class ClassesFragmentAdapter : RecyclerView.Adapter<ClassesViewHolder>() {
         val item = items[position]
         holder.title.text = item.title
         holder.comment.text = "${item.timeStart} - ${item.timeEnd}"
-        if (!item.isOpenInSkype) holder.hideLink()
+        if (item.isOpenInSkype) holder.showLink()
         if (item.isAdditionalLesson) holder.makeItSpecial()
-        if (item.annotation!="") holder.showDescription(item.annotation)
+        if (item.annotation != "") holder.showDescription(item.annotation)
         else holder.hideDescription()
         if (item.participants.isNotEmpty()) holder.showAccomplices()
         else holder.hideAccomplices()

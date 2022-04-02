@@ -49,52 +49,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/iv_badge"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_marginVertical="24dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/bg_for_label_card"
-                android:padding="12dp"
-                android:src="@drawable/ic_books_svg_label"
-                app:layout_constraintBottom_toBottomOf="parent"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/base_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/ll_link"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/iv_badge"
-                app:layout_constraintTop_toTopOf="@id/iv_badge"
-                tools:text="Lesson" />
+                <ImageView
+                    android:id="@+id/iv_badge"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginVertical="24dp"
+                    android:layout_marginStart="24dp"
+                    android:background="@drawable/bg_for_label_card"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_books_svg_label"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/iv_description_icon"
-                android:layout_width="12dp"
-                android:layout_height="0dp"
-                android:alpha="0.3"
-                android:src="@drawable/baseline_access_time_black_24dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_comment"
-                app:layout_constraintStart_toStartOf="@+id/tv_name"
-                app:layout_constraintTop_toTopOf="@+id/tv_comment" />
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/iv_badge"
+                    app:layout_constraintTop_toTopOf="@id/iv_badge"
+                    tools:text="Lesson" />
 
-            <TextView
-                android:id="@+id/tv_comment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginBottom="4dp"
-                android:alpha="0.5"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/iv_badge"
-                app:layout_constraintStart_toEndOf="@+id/iv_description_icon"
-                tools:text="Комментарий: содержание" />
+                <ImageView
+                    android:id="@+id/iv_description_icon"
+                    android:layout_width="12dp"
+                    android:layout_height="0dp"
+                    android:alpha="0.3"
+                    android:src="@drawable/baseline_access_time_black_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_comment"
+                    app:layout_constraintStart_toStartOf="@+id/tv_name"
+                    app:layout_constraintTop_toTopOf="@+id/tv_comment" />
+
+                <TextView
+                    android:id="@+id/tv_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:alpha="0.5"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_badge"
+                    app:layout_constraintStart_toEndOf="@+id/iv_description_icon"
+                    tools:text="Комментарий: содержание" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/tv_description"
@@ -105,19 +114,23 @@
                 android:maxLines="2"
                 android:text="Как минимум две строчки комментариев к занятию"
                 android:textSize="12sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/ll_link"
-                app:layout_constraintStart_toStartOf="@+id/iv_badge"
-                app:layout_constraintTop_toBottomOf="@+id/iv_badge" />
+                app:layout_constraintStart_toStartOf="@+id/base_content"
+                app:layout_constraintTop_toBottomOf="@+id/base_content"
+                tools:visibility="visible" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_accomplices"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginVertical="16dp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/ll_link"
                 app:layout_constraintStart_toStartOf="@+id/tv_description"
-                app:layout_constraintTop_toBottomOf="@id/tv_description" />
+                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                tools:visibility="visible" />
 
             <LinearLayout
                 android:id="@+id/ll_link"
@@ -126,9 +139,11 @@
                 android:background="#4bcfff"
                 android:gravity="center"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
 
                 <TextView
                     android:layout_width="match_parent"
