@@ -7,15 +7,15 @@
                 android:endColor="#01b9b7"
                 android:startColor="#38f382" />
             <size
-                android:width="24dp"
-                android:height="24dp" />
+                android:width="32dp"
+                android:height="32dp" />
         </shape>
     </item>
     <item
-        android:bottom="7dp"
-        android:left="7dp"
-        android:right="7dp"
-        android:top="7dp">
+        android:bottom="11dp"
+        android:left="11dp"
+        android:right="11dp"
+        android:top="11dp">
         <shape
             android:shape="oval"
             android:tint="@color/white" />

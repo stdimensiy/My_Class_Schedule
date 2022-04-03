@@ -1,16 +1,16 @@
 package com.vdvapp.myclassschedule.ui.home
 
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.vdvapp.myclassschedule.R
 import com.vdvapp.myclassschedule.databinding.FragmentHomeBinding
 import com.vdvapp.myclassschedule.ui.common.BaseFragment
 
@@ -29,15 +29,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val homeList = view.findViewById<RecyclerView>(R.id.rv_home)
+        setFormattedGreeting("Mike")
+        val homeList = binding.rvHome
         adapter = HomeAdapter(context)
         homeList.adapter = adapter
         homeList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         viewModel.fetchData()
         viewModel.listHomeFragmentStricture.observe(viewLifecycleOwner) {
-            Log.d("Моя проверка", "Изменяю данные первичного списка ${it.size}")
             adapter.items = it
             adapter.notifyDataSetChanged()
         }
@@ -79,6 +80,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun delayedHide(delayMillis: Int) {
         hideHandler.removeCallbacks(hideRunnable)
         hideHandler.postDelayed(hideRunnable, delayMillis.toLong())
+    }
+
+
+    /**
+     * Создает форматированную строку приветствия, с применением переданного в качестве параметра
+     * [name] имени пользователя. Форматирование выполняется при помощи HTML тегов.
+     */
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun setFormattedGreeting(name: String) {
+        binding.tvHeader.text = Html.fromHtml("Hi, <b>$name</b>!", Html.FROM_HTML_MODE_LEGACY)
     }
 
     companion object {
