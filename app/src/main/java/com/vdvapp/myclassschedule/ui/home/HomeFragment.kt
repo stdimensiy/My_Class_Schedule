@@ -1,10 +1,13 @@
 package com.vdvapp.myclassschedule.ui.home
 
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,8 +29,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setFormattedGreeting("Mike")
         val homeList = binding.rvHome
         adapter = HomeAdapter(context)
         homeList.adapter = adapter
@@ -75,6 +80,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun delayedHide(delayMillis: Int) {
         hideHandler.removeCallbacks(hideRunnable)
         hideHandler.postDelayed(hideRunnable, delayMillis.toLong())
+    }
+
+
+    /**
+     * Создает форматированную строку приветствия, с применением переданного в качестве параметра
+     * [name] имени пользователя. Форматирование выполняется при помощи HTML тегов.
+     */
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun setFormattedGreeting(name: String) {
+        binding.tvHeader.text = Html.fromHtml("Hi, <b>$name</b>!", Html.FROM_HTML_MODE_LEGACY)
     }
 
     companion object {
