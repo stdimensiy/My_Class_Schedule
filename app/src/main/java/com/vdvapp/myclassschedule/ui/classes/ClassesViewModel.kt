@@ -18,7 +18,7 @@ class ClassesViewModel : ViewModel() {
         mListClassesToDate.postValue(
             ClassesToDate(
                 "Classes",
-                "123",
+                "Today, 1 June",
                 listOf(
                     Lesson(
                         "8:00",

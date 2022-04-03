@@ -34,9 +34,14 @@ class ClassesFragment : BaseFragment<FragmentClassesBinding>() {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         viewModel.fetchData()
         viewModel.listClassesToDate.observe(viewLifecycleOwner) {
+            setHeaderComment(it.date)
             adapter.items = it.classes
             adapter.notifyDataSetChanged()
         }
+    }
+
+    fun setHeaderComment(comment: String){
+        binding.subscriptComment.text = comment
     }
 
 }

@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="Classes"
+            android:text="@string/classes_default_title"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -62,12 +62,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Today, 1 June"
-        android:paddingBottom="16dp"
         android:alpha="0.4"
+        android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_head" />
+        app:layout_constraintTop_toBottomOf="@id/cl_head"
+        tools:text="Комментарий к экрану" />
 
 
     <androidx.recyclerview.widget.RecyclerView

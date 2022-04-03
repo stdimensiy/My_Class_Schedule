@@ -37,6 +37,7 @@ class ClassesAdapter(private val typeListView: ListView) :
         holder.showDescriptionIcon()
         // при полном отображении разметки: режим FULL
         if (typeListView == ListView.FULL) {
+            holder.hideDescriptionIcon()
             holder.comment.text = item.Teacher
             holder.showTimePoint()
             holder.showItemHeader()

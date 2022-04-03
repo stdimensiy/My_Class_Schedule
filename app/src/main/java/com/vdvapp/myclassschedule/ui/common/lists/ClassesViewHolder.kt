@@ -3,6 +3,7 @@ package com.vdvapp.myclassschedule.ui.common.lists
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
 import com.vdvapp.myclassschedule.R
 import com.vdvapp.myclassschedule.databinding.ItemClassesSimpleTypeBinding
@@ -20,7 +21,7 @@ class ClassesViewHolder(
     private val headerTitle = binding.tvTimeInterval
     private val timeInterval = binding.tvTimeInterval
     val lLink = binding.llLink
-    val lessonContainer = binding.clLesson
+    val lessonContainer = binding.cvLesson
     private val description = binding.tvDescription
     val accomplices = binding.rvAccomplices
 
@@ -58,10 +59,12 @@ class ClassesViewHolder(
 
     /**
      * Показывает иконку занятия (не устанавливает) и не меняет содержимого элемента ImageView
+     * если ничего не передано в качестве параметра [res] который ринимает Int ресурса приложения
      * @return нет возвращаемых значений
      */
-    fun showDescriptionIcon() {
+    fun showDescriptionIcon(res: Int? = null) {
         descriptionIcon.visibility = View.VISIBLE
+        res?.let { descriptionIcon.setImageResource(it) }
     }
 
     /**
@@ -122,6 +125,9 @@ class ClassesViewHolder(
      */
     fun showItemHeader() {
         headerTitle.visibility = View.VISIBLE
+        val params = lessonContainer.layoutParams as ViewGroup.MarginLayoutParams
+        params.setMargins(0,50,0,64)
+        lessonContainer.layoutParams = params
     }
 
     /**
