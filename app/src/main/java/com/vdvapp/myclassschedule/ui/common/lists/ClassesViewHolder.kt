@@ -19,7 +19,7 @@ class ClassesViewHolder(
     private val headerPoint = binding.ivTimePoint
     private val headerTitle = binding.tvTimeInterval
     private val timeInterval = binding.tvTimeInterval
-    private val lLink = binding.llLink
+    val lLink = binding.llLink
     val lessonContainer = binding.clLesson
     private val description = binding.tvDescription
     val accomplices = binding.rvAccomplices
